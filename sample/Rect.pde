@@ -1,14 +1,15 @@
-class Ball extends Figure {
-  int r;
+class Rect extends Figure {
+  int w, h;
   
-  Ball(){
+  Rect(){
     super();
-    r = 40;
+    w = 60;
+    h = 50;
   }
   
   void paint(){
-    fill(255, 0, 0);
-    ellipse(x, y, r, r);
+    fill(0, 255, 255);
+    rect(x-w/2, y-h/2, w, h);
     x += dx;
     y += dy;
     if ( x < 0 || x > width ){
@@ -20,7 +21,7 @@ class Ball extends Figure {
   }
   
   void hit(){
-    if ( (mouseX-x)*(mouseX-x) + (mouseY-y)*(mouseY-y) < r*r ){
+    if ( (mouseX-x)*(mouseX-x) < w*w && (mouseY-y)*(mouseY-y) < h*h ){
       dx *= 2;
       dy *= 2;
     }
