@@ -1,18 +1,22 @@
-Ball a, b;
+Ball[] objs;
 
 void setup(){
   size(400,300);
-  a = new Ball();
-  b = new Ball();
+  objs = new Ball[2];
+  for( int i = 0; i < objs.length; i++ ){
+    objs[i] = new Ball();
+  }
 }
 
 void draw(){
   background(255,255,255);
-  a.paint();
-  b.paint();
+  for( int i = 0; i < objs.length; i++ ){
+    objs[i].paint();
+  }  
 }
 
 void mousePressed(){
-  a.hit();
-  b.hit();
+  for( int i = 0; i < objs.length; i++ ){
+    objs[i].hit();
+  }  
 }
